@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riyad-portfolio-f18db.web.app/sitemap.xml
+
+
