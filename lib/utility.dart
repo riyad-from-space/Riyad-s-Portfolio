@@ -59,8 +59,7 @@ class Utility extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.brightness_6_outlined,
-                    size: isMobile ? 18.sp : 20.sp),
+                const Icon(Icons.brightness_6_outlined, size: 20),
                 SizedBox(width: isMobile ? 6.w : 8.w),
                 DropdownButton<ThemeMode>(
                   value: themeMode,
@@ -102,7 +101,7 @@ class Utility extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.color_lens_outlined, size: isMobile ? 18.sp : 20.sp),
+                const Icon(Icons.color_lens_outlined, size: 20),
                 SizedBox(width: isMobile ? 6.w : 8.w),
                 DropdownButton<Color>(
                   value: _colorOptions.contains(selectedColor)
@@ -156,8 +155,7 @@ class Utility extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.font_download_outlined,
-                    size: isMobile ? 18.sp : 20.sp),
+                const Icon(Icons.font_download_outlined, size: 20),
                 SizedBox(width: isMobile ? 6.w : 8.w),
                 DropdownButton<String>(
                   value: _fontOptions.contains(selectedFont)

@@ -19,11 +19,7 @@ class SectionHeadline extends StatelessWidget {
         Icon(
           icon,
           color: Theme.of(context).colorScheme.primary,
-          size: isMobile
-              ? 22.sp
-              : isTablet
-                  ? 24.sp
-                  : 26.sp,
+          size: 26,
         ),
         SizedBox(width: isMobile ? 6.w : 8.w),
         Expanded(

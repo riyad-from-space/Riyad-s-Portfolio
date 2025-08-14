@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TitleHeader extends StatelessWidget {
   final String fontFamily;
@@ -60,16 +61,60 @@ class TitleHeader extends StatelessWidget {
                     ? 9.h
                     : 10.h,
             children: [
-              _contactChip('linkedin', Icons.link, textTheme, primary, isMobile,
-                  isTablet),
-              _contactChip('ahmedriyad10186@gmail.com', Icons.email, textTheme,
-                  primary, isMobile, isTablet),
-              _contactChip('01799771074', Icons.phone, textTheme, primary,
-                  isMobile, isTablet),
-              _contactChip('Sylhet,Bangladesh', Icons.location_city, textTheme,
-                  primary, isMobile, isTablet),
-              _contactChip('Resume', Icons.picture_as_pdf, textTheme, primary,
-                  isMobile, isTablet),
+              _contactChip(
+                'LinkedIn',
+                Icons.link,
+                'https://www.linkedin.com/in/riyadfromspace/',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
+                'GitHub',
+                Icons.code,
+                'https://github.com/riyad-from-space',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
+                'ahmedriyad10186@gmail.com',
+                Icons.email,
+                'mailto:ahmedriyad10186@gmail.com',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
+                '01799771074',
+                Icons.phone,
+                'tel:01799771074',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
+                'Sylhet, Bangladesh',
+                Icons.location_city,
+                'https://www.google.com/maps/search/?api=1&query=Sylhet%2C%20Bangladesh',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
+                'Resume',
+                Icons.picture_as_pdf,
+                'https://riyad-portfolio-f18db.web.app',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
             ],
           ),
         ),
@@ -80,26 +125,38 @@ class TitleHeader extends StatelessWidget {
   Widget _contactChip(
     String text,
     IconData icon,
+    String href,
     TextTheme textTheme,
     Color iconColor,
     bool isMobile,
     bool isTablet,
   ) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          icon,
-          size: isMobile
-              ? 18.sp
-              : isTablet
-                  ? 19.sp
-                  : 20.sp,
-          color: iconColor,
+    return InkWell(
+      onTap: () async {
+        final uri = Uri.parse(href);
+        if (await canLaunchUrl(uri)) {
+          await launchUrl(uri, mode: LaunchMode.platformDefault);
+        }
+      },
+      borderRadius: BorderRadius.circular(6.r),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: isMobile ? 6.w : 8.w,
+          vertical: isMobile ? 4.h : 5.h,
         ),
-        SizedBox(width: isMobile ? 4.w : 5.w),
-        Text(text, style: textTheme.labelSmall),
-      ],
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 20,
+              color: iconColor,
+            ),
+            SizedBox(width: isMobile ? 4.w : 5.w),
+            Text(text, style: textTheme.labelSmall),
+          ],
+        ),
+      ),
     );
   }
 }

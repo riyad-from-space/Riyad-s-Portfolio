@@ -27,21 +27,34 @@ class ExperienceListView extends StatelessWidget {
     final isMobile = 1.sw < 600;
     final isTablet = 1.sw >= 600 && 1.sw < 1200;
 
-    final List<Map<String, String>> experiences = [
+    final List<Map<String, dynamic>> experiences = [
       {
         'title': 'Senior Flutter Developer',
         'company': 'Tech Corp',
         'period': '2022 - Present',
+        'bullets': [
+          'Led development of cross-platform features with Flutter.',
+          'Improved app performance and reduced build times by 25%.',
+          'Collaborated with designers and backend teams to ship features.',
+        ],
       },
       {
         'title': 'Mobile Developer',
         'company': 'Appify Lab',
         'period': '2020 - 2022',
+        'bullets': [
+          'Built and maintained client apps with Flutter and Firebase.',
+          'Implemented CI/CD pipelines for faster releases.',
+        ],
       },
       {
         'title': 'Junior Developer',
         'company': 'Startup Inc.',
         'period': '2018 - 2020',
+        'bullets': [
+          'Contributed to UI components and bug fixes.',
+          'Wrote unit tests and documentation.',
+        ],
       },
     ];
 
@@ -55,10 +68,10 @@ class ExperienceListView extends StatelessWidget {
                 ? 2
                 : 3,
         childAspectRatio: isMobile
-            ? 2.5
+            ? 1.6
             : isTablet
-                ? 3.0
-                : 3.5,
+                ? 2.0
+                : 2.6,
         crossAxisSpacing: isMobile
             ? 8.w
             : isTablet
@@ -136,6 +149,26 @@ class ExperienceListView extends StatelessWidget {
                         .withOpacity(0.7),
                   ),
                 ),
+                SizedBox(height: isMobile ? 6.h : 8.h),
+                ...((exp['bullets'] as List<String>).take(isMobile ? 2 : 3).map(
+                      (b) => Padding(
+                        padding: EdgeInsets.only(bottom: isMobile ? 4.h : 6.h),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('• ', style: theme.labelSmall),
+                            Expanded(
+                              child: Text(
+                                b,
+                                style: theme.displaySmall,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )),
               ],
             ),
           ),

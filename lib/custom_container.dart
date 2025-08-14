@@ -26,10 +26,10 @@ class CustomContainer extends StatelessWidget {
         border: Border(
           left: BorderSide(
             width: isMobile
-                ? 3.w
+                ? 4.w
                 : isTablet
-                    ? 4.w
-                    : 5.w,
+                    ? 5.w
+                    : 6.w,
             color: primary,
           ),
           right: BorderSide(

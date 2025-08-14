@@ -29,23 +29,23 @@ class QualificationsGrid extends StatelessWidget {
         crossAxisCount: isMobile
             ? 2
             : isTablet
-                ? 3
+                ? 2
                 : 3,
         childAspectRatio: isMobile
-            ? 2.8
+            ? 2.6
             : isTablet
-                ? 3.2
-                : 3.6,
+                ? 3.0
+                : 3.4,
         crossAxisSpacing: isMobile
-            ? 8.w
+            ? 12.w
             : isTablet
-                ? 10.w
-                : 12.w,
+                ? 16.w
+                : 20.w,
         mainAxisSpacing: isMobile
-            ? 8.h
+            ? 12.h
             : isTablet
-                ? 10.h
-                : 12.h,
+                ? 16.h
+                : 20.h,
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {

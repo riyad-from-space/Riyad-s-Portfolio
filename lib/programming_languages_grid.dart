@@ -16,25 +16,31 @@ class ProgrammingLanguagesGrid extends StatelessWidget {
         'name': 'Dart',
         'icon': Icons.code,
         'color': Colors.blue,
-        'description': 'Flutter SDK',
+        'description': 'Programming Language',
       },
       {
-        'name': 'Kotlin',
-        'icon': Icons.android,
+        'name': 'C',
+        'icon': Icons.memory,
+        'color': Colors.indigo,
+        'description': 'Programming Language',
+      },
+      {
+        'name': 'C++',
+        'icon': Icons.developer_mode,
+        'color': Colors.deepPurple,
+        'description': 'Programming Language',
+      },
+      {
+        'name': 'Java',
+        'icon': Icons.coffee, // symbolic
         'color': Colors.orange,
-        'description': 'Android Dev',
+        'description': 'Programming Language',
       },
       {
-        'name': 'Swift',
-        'icon': Icons.phone_iphone,
-        'color': Colors.red,
-        'description': 'iOS Dev',
-      },
-      {
-        'name': 'JavaScript',
-        'icon': Icons.web,
-        'color': Colors.yellow,
-        'description': 'Web Dev',
+        'name': 'Python',
+        'icon': Icons.pets, // symbolic
+        'color': Colors.green,
+        'description': 'Programming Language',
       },
     ];
 
@@ -48,10 +54,10 @@ class ProgrammingLanguagesGrid extends StatelessWidget {
                 ? 3
                 : 4,
         childAspectRatio: isMobile
-            ? 1.5
+            ? 1.3
             : isTablet
-                ? 1.8
-                : 2.2,
+                ? 1.6
+                : 2.0,
         crossAxisSpacing: isMobile
             ? 8.w
             : isTablet
@@ -115,11 +121,7 @@ class ProgrammingLanguagesGrid extends StatelessWidget {
                   child: Icon(
                     lang['icon'],
                     color: lang['color'],
-                    size: isMobile
-                        ? 24.sp
-                        : isTablet
-                            ? 28.sp
-                            : 32.sp,
+                    size: 32,
                   ),
                 ),
                 SizedBox(
@@ -140,6 +142,8 @@ class ProgrammingLanguagesGrid extends StatelessWidget {
                     color: lang['color'],
                   ),
                   textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(
                     height: isMobile
@@ -161,6 +165,8 @@ class ProgrammingLanguagesGrid extends StatelessWidget {
                         .withOpacity(0.7),
                   ),
                   textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
