@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:riyad_portfolio/custom_container.dart';
 import 'package:riyad_portfolio/experience_grid.dart';
-import 'package:riyad_portfolio/qualifications_grid.dart';
 import 'package:riyad_portfolio/section_headline.dart';
 import 'package:riyad_portfolio/technical_skills.dart';
 import 'package:riyad_portfolio/title_header.dart';
@@ -10,7 +9,7 @@ import 'package:riyad_portfolio/utility.dart';
 
 import 'education_grid.dart';
 import 'languages_grid.dart';
-import 'programming_languages_grid.dart';
+import 'programming_languages.dart';
 import 'projects_grid.dart';
 
 class PortfolioScreen extends StatefulWidget {
@@ -106,13 +105,13 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: sectionSpacing),
-              const SectionHeadline(
-                icon: Icons.check_circle_outline,
-                sectionName: "Key Qualifications",
-              ),
-              SizedBox(height: smallSpacing),
-              QualificationsGrid(fontFamily: widget.selectedFont),
+              // SizedBox(height: sectionSpacing),
+              // const SectionHeadline(
+              //   icon: Icons.check_circle_outline,
+              //   sectionName: "Key Qualifications",
+              // ),
+              // SizedBox(height: smallSpacing),
+              // QualificationsGrid(fontFamily: widget.selectedFont),
               SizedBox(height: smallSpacing),
               const SectionHeadline(
                 icon: Icons.settings,

@@ -29,147 +29,99 @@ class ExperienceListView extends StatelessWidget {
 
     final List<Map<String, dynamic>> experiences = [
       {
-        'title': 'Senior Flutter Developer',
-        'company': 'Tech Corp',
-        'period': '2022 - Present',
+        'title': 'Junior Software Engineer ',
+        'company': 'AppifyLab',
+        'period': "May'24 - Present",
         'bullets': [
-          'Led development of cross-platform features with Flutter.',
-          'Improved app performance and reduced build times by 25%.',
+          'Worked on Push Notification system for enhanced user engagement',
+          'Built real-time Chat functionality with Firebase integration',
+          'Performed continuous bug fixing and feature improvements for app stability',
+          'Integrated RESTful APIs for seamless backend communication',
+          'Managed app deployment on both Google Play Store and Apple App Store',
           'Collaborated with designers and backend teams to ship features.',
         ],
       },
       {
-        'title': 'Mobile Developer',
-        'company': 'Appify Lab',
-        'period': '2020 - 2022',
+        'title': 'Intern Software Engineer',
+        'company': 'AppifyLab',
+        'period': "Feb'24 - April'24",
         'bullets': [
-          'Built and maintained client apps with Flutter and Firebase.',
-          'Implemented CI/CD pipelines for faster releases.',
+          'Implemented feature UI components using Flutter widgets and Material Design',
+          'Learned and applied various APIs and State Management solutions (Provider, Riverpod)',
+          'Developed complete mobile applications from concept to deployment',
+          'Worked with Firebase services for authentication and data management',
+          'Participated in code reviews and learned best practices from senior developers',
+          'Gained hands-on experience with Git version control and collaborative development',
         ],
       },
       {
-        'title': 'Junior Developer',
-        'company': 'Startup Inc.',
-        'period': '2018 - 2020',
+        'title': 'Flutter Developer',
+        'company': 'Heapiphy',
+        'period': 'Part-Time',
         'bullets': [
-          'Contributed to UI components and bug fixes.',
-          'Wrote unit tests and documentation.',
+          'Developed mobile applications using REST APIs and third-party services',
+          'Implemented feature improvements and enhancements based on user feedback',
+          'Contributed to UI components and bug fixes for better user experience',
+          'Collaborated with development team on agile development practices',
         ],
       },
     ];
 
-    return GridView.builder(
+    return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: isMobile
-            ? 1
-            : isTablet
-                ? 2
-                : 3,
-        childAspectRatio: isMobile
-            ? 1.6
-            : isTablet
-                ? 2.0
-                : 2.6,
-        crossAxisSpacing: isMobile
-            ? 8.w
-            : isTablet
-                ? 10.w
-                : 12.w,
-        mainAxisSpacing: isMobile
-            ? 8.h
-            : isTablet
-                ? 10.h
-                : 12.h,
-      ),
       itemCount: experiences.length,
       itemBuilder: (context, index) {
         final exp = experiences[index];
-        return CustomContainer(
-          child: Padding(
-            padding: EdgeInsets.all(isMobile
-                ? 12.w
-                : isTablet
-                    ? 14.w
-                    : 16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  exp['title']!,
-                  style: theme.headlineMedium?.copyWith(
-                    fontSize: isMobile
-                        ? 16
-                        : isTablet
-                            ? 18
-                            : 20,
-                    fontWeight: FontWeight.w600,
+        return Padding(
+          padding: EdgeInsets.only(bottom: 16.h),
+          child: CustomContainer(
+            child: Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    exp['title']!,
+                    style: theme.headlineMedium,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(
-                    height: isMobile
-                        ? 6.h
-                        : isTablet
-                            ? 8.h
-                            : 10.h),
-                Text(
-                  exp['company']!,
-                  style: theme.bodyMedium?.copyWith(
-                    fontSize: isMobile
-                        ? 14
-                        : isTablet
-                            ? 15
-                            : 16,
-                    color: Theme.of(context).colorScheme.primary,
+                  SizedBox(height: 8.h),
+                  Text(
+                    exp['company']!,
+                    style: theme.bodyMedium,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(
-                    height: isMobile
-                        ? 4.h
-                        : isTablet
-                            ? 5.h
-                            : 6.h),
-                Text(
-                  exp['period']!,
-                  style: theme.labelSmall?.copyWith(
-                    fontSize: isMobile
-                        ? 12
-                        : isTablet
-                            ? 13
-                            : 14,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onSurface
-                        .withOpacity(0.7),
+                  SizedBox(height: 5.h),
+                  Text(
+                    exp['period']!,
+                    style: theme.labelSmall,
                   ),
-                ),
-                SizedBox(height: isMobile ? 6.h : 8.h),
-                ...((exp['bullets'] as List<String>).take(isMobile ? 2 : 3).map(
-                      (b) => Padding(
-                        padding: EdgeInsets.only(bottom: isMobile ? 4.h : 6.h),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('• ', style: theme.labelSmall),
-                            Expanded(
-                              child: Text(
-                                b,
-                                style: theme.displaySmall,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                  SizedBox(height: 12.h),
+                  ...((exp['bullets'] as List<String>).map(
+                    (b) => Padding(
+                      padding: EdgeInsets.only(bottom: 8.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('• ', style: theme.labelSmall),
+                          Expanded(
+                            child: Text(
+                              b,
+                              style: theme.displaySmall,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    )),
-              ],
+                    ),
+                  )),
+                ],
+              ),
             ),
           ),
         );

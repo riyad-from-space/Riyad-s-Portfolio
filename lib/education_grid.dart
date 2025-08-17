@@ -15,16 +15,16 @@ class EducationGrid extends StatelessWidget {
     const items = [
       {
         'degree': 'B.Sc. in CSE',
-        'institute': 'Your University Name',
+        'institute': 'Leading Univercity, Sylhet',
         'duration': 'Jan 2022 — Present',
         'cgpa': '3.1'
       },
-      {
-        'degree': 'M.Sc. in SE',
-        'institute': 'Your University Name',
-        'duration': 'Planned',
-        'cgpa': '-'
-      },
+      // {
+      //   'degree': 'M.Sc. in SE',
+      //   'institute': 'Your University Name',
+      //   'duration': 'Planned',
+      //   'cgpa': '-'
+      // },
     ];
 
     return GridView.builder(
@@ -65,7 +65,11 @@ class EducationGrid extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Icon(Icons.school_outlined, size: 24),
+                Icon(
+                  Icons.school_outlined,
+                  size: 24,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 SizedBox(width: isMobile ? 8.w : 10.w),
                 Expanded(
                   child: Column(
@@ -74,34 +78,14 @@ class EducationGrid extends StatelessWidget {
                     children: [
                       Text(
                         item['degree'] as String,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium
-                            ?.copyWith(
-                              fontSize: isMobile
-                                  ? 14
-                                  : isTablet
-                                      ? 16
-                                      : 18,
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: Theme.of(context).textTheme.headlineMedium,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(height: isMobile ? 4.h : 6.h),
                       Text(
                         item['institute'] as String,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontSize: isMobile
-                                  ? 12
-                                  : isTablet
-                                      ? 13
-                                      : 14,
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSurface
-                                  .withOpacity(0.7),
-                            ),
+                        style: Theme.of(context).textTheme.displaySmall,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),

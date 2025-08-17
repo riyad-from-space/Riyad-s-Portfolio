@@ -14,12 +14,15 @@ class TechnicalSkillsGrid extends StatelessWidget {
     final isTablet = 1.sw >= 600 && 1.sw < 1200;
 
     const skills = [
-      ['Flutter', 'Declarative UI framework'],
-      ['Dart', 'AOT/JIT compiled language'],
-      ['Firebase', 'Auth, DB, Storage, FCM'],
-      ['SQLite', 'Local persistence'],
-      ['Bloc', 'Predictable state management'],
-      ['Provider', 'Simple state mgmt'],
+      [
+        'Flutter',
+        'Provider, Riverpod, GetX, Clean Architecture, MVVM, Push Notifications'
+      ],
+      ['Database', 'Firebase, Supabase, MySQL'],
+      ['Operating Systems', 'Windows, Linux, MacOS'],
+      ['Version Control', 'Git, Github, Gitlab'],
+      ['Development Tools', 'VS Code, Android Studio, Xcode'],
+      ['Development & CI/CD', 'Playstore, Appstore'],
     ];
 
     return GridView.builder(
@@ -27,68 +30,34 @@ class TechnicalSkillsGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: isMobile
-            ? 2
+            ? 1
             : isTablet
                 ? 2
                 : 3,
-        childAspectRatio: isMobile
-            ? 2.6
-            : isTablet
-                ? 3.0
-                : 3.4,
-        crossAxisSpacing: isMobile
-            ? 12.w
-            : isTablet
-                ? 16.w
-                : 20.w,
-        mainAxisSpacing: isMobile
-            ? 12.h
-            : isTablet
-                ? 16.h
-                : 20.h,
+        childAspectRatio: 3,
+        crossAxisSpacing: 16.w,
+        mainAxisSpacing: 16.w,
       ),
       itemCount: skills.length,
       itemBuilder: (context, index) {
         final item = skills[index];
         return CustomContainer(
           child: Padding(
-            padding: EdgeInsets.all(isMobile
-                ? 8.w
-                : isTablet
-                    ? 9.w
-                    : 10.w),
+            padding: EdgeInsets.all(8.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   item[0],
-                  style: theme.headlineMedium?.copyWith(
-                    fontSize: isMobile
-                        ? 14
-                        : isTablet
-                            ? 16
-                            : 18,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: theme.headlineMedium,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
-                    height: isMobile
-                        ? 4.h
-                        : isTablet
-                            ? 5.h
-                            : 6.h),
+                SizedBox(height: 5.h),
                 Text(
                   item[1],
-                  style: theme.displaySmall?.copyWith(
-                    fontSize: isMobile
-                        ? 11
-                        : isTablet
-                            ? 12
-                            : 14,
-                  ),
+                  style: theme.displaySmall,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

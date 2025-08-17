@@ -25,13 +25,7 @@ class SectionHeadline extends StatelessWidget {
         Expanded(
           child: Text(
             sectionName,
-            style: textTheme.headlineLarge?.copyWith(
-              fontSize: isMobile
-                  ? 20
-                  : isTablet
-                      ? 22
-                      : 24,
-            ),
+            style: textTheme.headlineLarge,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             softWrap: false,

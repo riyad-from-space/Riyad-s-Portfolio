@@ -7,60 +7,49 @@ class LanguagesGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = 1.sw < 600;
-    final isTablet = 1.sw >= 600 && 1.sw < 1200;
-
-    const langs = ['English', 'Bengali'];
-
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: isMobile
-            ? 2
-            : isTablet
-                ? 3
-                : 4,
-        childAspectRatio: isMobile
-            ? 2.8
-            : isTablet
-                ? 3.2
-                : 3.5,
-        crossAxisSpacing: isMobile
-            ? 8.w
-            : isTablet
-                ? 10.w
-                : 12.w,
-        mainAxisSpacing: isMobile
-            ? 8.h
-            : isTablet
-                ? 10.h
-                : 12.h,
-      ),
-      itemCount: langs.length,
-      itemBuilder: (context, index) {
-        return Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(isMobile
-                ? 6.r
-                : isTablet
-                    ? 7.r
-                    : 8.r),
-          ),
-          child: Text(
-            langs[index],
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontSize: isMobile
-                      ? 12
-                      : isTablet
-                          ? 13
-                          : 14,
+    final List<String> langs = ['English', 'Bangla'];
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: langs
+          .map(
+            (lang) => Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 28.w),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                      Theme.of(context).colorScheme.primary.withOpacity(0.05),
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                    width: 1.5,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: Offset(0, 2.h),
+                    ),
+                  ],
                 ),
-          ),
-        );
-      },
+                child: Text(
+                  lang,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

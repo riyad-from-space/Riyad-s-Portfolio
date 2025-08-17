@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static ThemeData lightTheme(Color selectedColor, String selectedFont) {
-    // Determine device class using screen width
     final bool isMobile = 1.sw < 600;
     final bool isTablet = 1.sw >= 600 && 1.sw < 1200;
 
@@ -70,7 +69,6 @@ class AppTheme {
   }
 
   static ThemeData darkTheme(Color selectedColor, String selectedFont) {
-    // Determine device class using screen width
     final bool isMobile = 1.sw < 600;
     final bool isTablet = 1.sw >= 600 && 1.sw < 1200;
 

@@ -57,13 +57,7 @@ class ProjectsGrid extends StatelessWidget {
                       : 8.w),
               child: Text(
                 projects[index],
-                style: theme.bodyMedium?.copyWith(
-                  fontSize: isMobile
-                      ? 12
-                      : isTablet
-                          ? 13
-                          : 14,
-                ),
+                style: theme.bodyMedium,
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,

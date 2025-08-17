@@ -20,28 +20,14 @@ class TitleHeader extends StatelessWidget {
       children: [
         Text(
           'Riyad Ahmed Sagor',
-          style: textTheme.headlineLarge?.copyWith(
-            color: Colors.black,
-            fontSize: isMobile
-                ? 24
-                : isTablet
-                    ? 26
-                    : 28,
-          ),
+          style: textTheme.headlineLarge,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
         SizedBox(height: isMobile ? 8.h : 10.h),
         Text(
           'Software Engineer (Flutter)',
-          style: textTheme.headlineMedium?.copyWith(
-            fontSize: isMobile
-                ? 16
-                : isTablet
-                    ? 17
-                    : 18,
-            fontWeight: FontWeight.w500,
-          ),
+          style: textTheme.headlineMedium,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -80,7 +66,7 @@ class TitleHeader extends StatelessWidget {
                 isTablet,
               ),
               _contactChip(
-                'ahmedriyad10186@gmail.com',
+                'Email',
                 Icons.email,
                 'mailto:ahmedriyad10186@gmail.com',
                 textTheme,

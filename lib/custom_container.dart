@@ -18,53 +18,29 @@ class CustomContainer extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(isMobile
-            ? 8.r
-            : isTablet
-                ? 10.r
-                : 12.r),
+        borderRadius: BorderRadius.circular(10),
         border: Border(
           left: BorderSide(
-            width: isMobile
-                ? 4.w
-                : isTablet
-                    ? 5.w
-                    : 6.w,
+            width: 5.w,
             color: primary,
           ),
           right: BorderSide(
-            width: isMobile
-                ? 0.1.w
-                : isTablet
-                    ? 0.15.w
-                    : 0.2.w,
+            width: 0.2.w,
             color: primary,
           ),
           top: BorderSide(
-            width: isMobile
-                ? 0.1.w
-                : isTablet
-                    ? 0.15.w
-                    : 0.2.w,
+            width: 0.2.w,
             color: primary,
           ),
           bottom: BorderSide(
-            width: isMobile
-                ? 0.1.w
-                : isTablet
-                    ? 0.15.w
-                    : 0.2.w,
+            width: 0.2.w,
             color: primary,
           ),
         ),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: isMobile
-              ? 4.w
-              : isTablet
-                  ? 5.w
-                  : 6.w,
+          horizontal: 5.w,
         ),
         child: child,
       ),

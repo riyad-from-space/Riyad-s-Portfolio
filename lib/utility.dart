@@ -19,13 +19,14 @@ class Utility extends StatelessWidget {
     required this.onFontChanged,
   });
 
-  static const List<Color> _colorOptions = <Color>[
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.purple,
-    Colors.orange,
-    Colors.teal,
+  static const List<Map<String, dynamic>> _colorOptions =
+      <Map<String, dynamic>>[
+    {'color': Colors.red, 'name': 'Red'},
+    {'color': Colors.blue, 'name': 'Blue'},
+    {'color': Colors.green, 'name': 'Green'},
+    {'color': Colors.purple, 'name': 'Purple'},
+    {'color': Colors.orange, 'name': 'Orange'},
+    {'color': Colors.teal, 'name': 'Teal'},
   ];
 
   static const List<String> _fontOptions = <String>[
@@ -39,140 +40,212 @@ class Utility extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = 1.sw < 600;
     final isTablet = 1.sw >= 600 && 1.sw < 1200;
+    final bool isMobile = 1.sw < 600;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 8.w,
+      runSpacing: 8.h,
       children: [
         // Theme mode toggle container
-        Card(
-          elevation: 2,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-          child: Padding(
-            padding: EdgeInsets.all(isMobile
-                ? 8.w
-                : isTablet
-                    ? 10.w
-                    : 12.w),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.brightness_6_outlined, size: 20),
-                SizedBox(width: isMobile ? 6.w : 8.w),
-                DropdownButton<ThemeMode>(
-                  value: themeMode,
-                  items: const [
-                    DropdownMenuItem(
-                        value: ThemeMode.light, child: Text('Light')),
-                    DropdownMenuItem(
-                        value: ThemeMode.dark, child: Text('Dark')),
-                    DropdownMenuItem(
-                        value: ThemeMode.system, child: Text('System')),
-                  ],
-                  onChanged: (mode) {
-                    if (mode != null) onThemeModeChanged(mode);
-                  },
-                ),
+        Container(
+          padding: EdgeInsets.all(8.w),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                Theme.of(context).colorScheme.primary.withOpacity(0.05),
               ],
             ),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                blurRadius: 8,
+                offset: Offset(0, 2.h),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.brightness_6_outlined,
+                  size: 16,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              DropdownButton<ThemeMode>(
+                value: themeMode,
+                underline: Container(),
+                icon: Container(),
+                items: [
+                  DropdownMenuItem(
+                      value: ThemeMode.light,
+                      child: Text('Light',
+                          style: Theme.of(context).textTheme.displaySmall)),
+                  DropdownMenuItem(
+                      value: ThemeMode.dark,
+                      child: Text('Dark',
+                          style: Theme.of(context).textTheme.displaySmall)),
+                  DropdownMenuItem(
+                      value: ThemeMode.system,
+                      child: Text('System',
+                          style: Theme.of(context).textTheme.displaySmall)),
+                ],
+                onChanged: (mode) {
+                  if (mode != null) onThemeModeChanged(mode);
+                },
+              ),
+            ],
           ),
         ),
-
-        SizedBox(
-            width: isMobile
-                ? 12.w
-                : isTablet
-                    ? 16.w
-                    : 20.w),
 
         // Color picker container
-        Card(
-          elevation: 2,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-          child: Padding(
-            padding: EdgeInsets.all(isMobile
-                ? 8.w
-                : isTablet
-                    ? 10.w
-                    : 12.w),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.color_lens_outlined, size: 20),
-                SizedBox(width: isMobile ? 6.w : 8.w),
-                DropdownButton<Color>(
-                  value: _colorOptions.contains(selectedColor)
-                      ? selectedColor
-                      : _colorOptions.first,
-                  items: _colorOptions
-                      .map((c) => DropdownMenuItem(
-                            value: c,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: isMobile ? 14.w : 16.w,
-                                  height: isMobile ? 14.h : 16.h,
-                                  decoration: BoxDecoration(
-                                      color: c, shape: BoxShape.circle),
-                                ),
-                                SizedBox(width: isMobile ? 6.w : 8.w),
-                                Text(
-                                    '#${c.value.toRadixString(16).padLeft(8, '0').toUpperCase()}'),
-                              ],
-                            ),
-                          ))
-                      .toList(),
-                  onChanged: (color) {
-                    if (color != null) onColorChanged(color);
-                  },
-                ),
+        Container(
+          padding: EdgeInsets.all(8.w),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                Theme.of(context).colorScheme.primary.withOpacity(0.05),
               ],
             ),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                blurRadius: 8,
+                offset: Offset(0, 2.h),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.color_lens_outlined,
+                  size: 16,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              DropdownButton<Map<String, dynamic>>(
+                value: _colorOptions.firstWhere(
+                  (option) => option['color'] == selectedColor,
+                  orElse: () => _colorOptions.first,
+                ),
+                underline: Container(),
+                icon: Container(),
+                items: _colorOptions
+                    .map((c) => DropdownMenuItem(
+                          value: c,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                c['name'] as String,
+                                style: Theme.of(context).textTheme.displaySmall,
+                              ),
+                            ],
+                          ),
+                        ))
+                    .toList(),
+                onChanged: (colorOption) {
+                  if (colorOption != null)
+                    onColorChanged(colorOption['color'] as Color);
+                },
+              ),
+            ],
           ),
         ),
 
-        SizedBox(
-            width: isMobile
-                ? 12.w
-                : isTablet
-                    ? 16.w
-                    : 20.w),
-
         // Font picker container
-        Card(
-          elevation: 2,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-          child: Padding(
-            padding: EdgeInsets.all(isMobile
-                ? 8.w
-                : isTablet
-                    ? 10.w
-                    : 12.w),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.font_download_outlined, size: 20),
-                SizedBox(width: isMobile ? 6.w : 8.w),
-                DropdownButton<String>(
-                  value: _fontOptions.contains(selectedFont)
-                      ? selectedFont
-                      : _fontOptions.first,
-                  items: _fontOptions
-                      .map((f) => DropdownMenuItem(
-                            value: f,
-                            child: Text(f),
-                          ))
-                      .toList(),
-                  onChanged: (font) {
-                    if (font != null) onFontChanged(font);
-                  },
-                ),
+        Container(
+          padding: EdgeInsets.all(8.w),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                Theme.of(context).colorScheme.primary.withOpacity(0.05),
               ],
             ),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                blurRadius: 8,
+                offset: Offset(0, 2.h),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.font_download_outlined,
+                  size: 16,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              DropdownButton<String>(
+                value: _fontOptions.contains(selectedFont)
+                    ? selectedFont
+                    : _fontOptions.first,
+                underline: Container(),
+                icon: Container(),
+                items: _fontOptions
+                    .map((f) => DropdownMenuItem(
+                          value: f,
+                          child: Text(f,
+                              style: Theme.of(context).textTheme.displaySmall),
+                        ))
+                    .toList(),
+                onChanged: (font) {
+                  if (font != null) onFontChanged(font);
+                },
+              ),
+            ],
           ),
         ),
       ],

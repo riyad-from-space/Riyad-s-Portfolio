@@ -63,14 +63,7 @@ class QualificationsGrid extends StatelessWidget {
               children: [
                 Text(
                   item[0],
-                  style: theme.headlineMedium?.copyWith(
-                    fontSize: isMobile
-                        ? 14
-                        : isTablet
-                            ? 16
-                            : 18,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: theme.headlineMedium,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -82,13 +75,7 @@ class QualificationsGrid extends StatelessWidget {
                             : 6.h),
                 Text(
                   item[1],
-                  style: theme.displaySmall?.copyWith(
-                    fontSize: isMobile
-                        ? 11
-                        : isTablet
-                            ? 12
-                            : 14,
-                  ),
+                  style: theme.displaySmall,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
