@@ -17,31 +17,31 @@ class ProgrammingLanguagesGrid extends StatelessWidget {
         'name': 'Dart',
         'icon': Icons.code,
         'color': Colors.blue,
-        'description': 'Programming Language',
+        'description': 'Expert - Primary Language',
       },
       {
-        'name': 'C',
-        'icon': Icons.memory,
-        'color': Colors.indigo,
-        'description': 'Programming Language',
+        'name': 'Python',
+        'icon': Icons.pets,
+        'color': Colors.green,
+        'description': 'Proficient - Backend/AI',
+      },
+      {
+        'name': 'Java',
+        'icon': Icons.coffee,
+        'color': Colors.orange,
+        'description': 'Intermediate - Android Native',
+      },
+      {
+        'name': 'SQL',
+        'icon': Icons.storage,
+        'color': Colors.teal,
+        'description': 'Proficient - Database',
       },
       {
         'name': 'C++',
         'icon': Icons.developer_mode,
         'color': Colors.deepPurple,
-        'description': 'Programming Language',
-      },
-      {
-        'name': 'Java',
-        'icon': Icons.coffee, // symbolic
-        'color': Colors.orange,
-        'description': 'Programming Language',
-      },
-      {
-        'name': 'Python',
-        'icon': Icons.pets, // symbolic
-        'color': Colors.green,
-        'description': 'Programming Language',
+        'description': 'Familiar - DSA',
       },
     ];
 

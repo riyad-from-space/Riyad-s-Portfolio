@@ -188,66 +188,66 @@ class Utility extends StatelessWidget {
         ),
 
         // Font picker container
-        Container(
-          padding: EdgeInsets.all(8.w),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                Theme.of(context).colorScheme.primary.withOpacity(0.05),
-              ],
-            ),
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-              width: 1.5,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                blurRadius: 8,
-                offset: Offset(0, 2.h),
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: EdgeInsets.all(8.w),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.font_download_outlined,
-                  size: 16,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-              SizedBox(width: 8.w),
-              DropdownButton<String>(
-                value: _fontOptions.contains(selectedFont)
-                    ? selectedFont
-                    : _fontOptions.first,
-                underline: Container(),
-                icon: Container(),
-                items: _fontOptions
-                    .map((f) => DropdownMenuItem(
-                          value: f,
-                          child: Text(f,
-                              style: Theme.of(context).textTheme.displaySmall),
-                        ))
-                    .toList(),
-                onChanged: (font) {
-                  if (font != null) onFontChanged(font);
-                },
-              ),
-            ],
-          ),
-        ),
+        // Container(
+        //   padding: EdgeInsets.all(8.w),
+        //   decoration: BoxDecoration(
+        //     gradient: LinearGradient(
+        //       begin: Alignment.topLeft,
+        //       end: Alignment.bottomRight,
+        //       colors: [
+        //         Theme.of(context).colorScheme.primary.withOpacity(0.1),
+        //         Theme.of(context).colorScheme.primary.withOpacity(0.05),
+        //       ],
+        //     ),
+        //     borderRadius: BorderRadius.circular(8),
+        //     border: Border.all(
+        //       color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+        //       width: 1.5,
+        //     ),
+        //     boxShadow: [
+        //       BoxShadow(
+        //         color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+        //         blurRadius: 8,
+        //         offset: Offset(0, 2.h),
+        //       ),
+        //     ],
+        //   ),
+        //   child: Row(
+        //     mainAxisSize: MainAxisSize.min,
+        //     children: [
+        //       Container(
+        //         padding: EdgeInsets.all(8.w),
+        //         decoration: BoxDecoration(
+        //           color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+        //           shape: BoxShape.circle,
+        //         ),
+        //         child: Icon(
+        //           Icons.font_download_outlined,
+        //           size: 16,
+        //           color: Theme.of(context).colorScheme.primary,
+        //         ),
+        //       ),
+        //       SizedBox(width: 8.w),
+        //       DropdownButton<String>(
+        //         value: _fontOptions.contains(selectedFont)
+        //             ? selectedFont
+        //             : _fontOptions.first,
+        //         underline: Container(),
+        //         icon: Container(),
+        //         items: _fontOptions
+        //             .map((f) => DropdownMenuItem(
+        //                   value: f,
+        //                   child: Text(f,
+        //                       style: Theme.of(context).textTheme.displaySmall),
+        //                 ))
+        //             .toList(),
+        //         onChanged: (font) {
+        //           if (font != null) onFontChanged(font);
+        //         },
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

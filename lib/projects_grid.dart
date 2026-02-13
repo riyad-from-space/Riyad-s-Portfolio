@@ -6,15 +6,19 @@ import 'custom_container.dart';
 
 class Project {
   final String title;
+  final String description;
   final List<String> technologies;
   final String? playStoreLink;
-  final String githubLink;
+  final String? appStoreLink;
+  final String? githubLink;
 
   const Project({
     required this.title,
+    required this.description,
     required this.technologies,
     this.playStoreLink,
-    required this.githubLink,
+    this.appStoreLink,
+    this.githubLink,
   });
 }
 
@@ -31,43 +35,70 @@ class ProjectsGrid extends StatelessWidget {
 
     const projects = [
       Project(
-        title: 'Community App',
+        title: 'EzyCourse - SaaS Platform',
+        description:
+            'Enterprise SaaS platform powering 1,000+ course creators and their communities with real-time collaboration and content delivery',
+        technologies: ['Flutter', 'Bloc', 'REST API', 'Firebase', 'CI/CD'],
+        playStoreLink:
+            'https://play.google.com/store/apps/details?id=com.ezycourse.ezycourse&hl=en',
+        appStoreLink: 'https://apps.apple.com/fi/app/ezycourse/id6443599486',
+      ),
+      Project(
+        title: 'NewsSip - News in 60 Words',
+        description:
+            'Concise news aggregation app delivering bite-sized news updates with real-time synchronization and personalized content',
+        technologies: ['Flutter', 'BLoC', 'Firebase', 'WebSockets'],
+        playStoreLink:
+            'https://play.google.com/store/apps/details?id=com.heapiphy.newssip&hl=en',
+        githubLink: 'https://github.com/Heapiphy/bulletins.git',
+      ),
+      Project(
+        title: 'Community Platform',
+        description: 'Production-ready social learning platform enabling course creators to build and manage engaged student communities',
         technologies: ['Flutter', 'Rest API', 'Riverpod', 'Clean Architecture'],
         githubLink:
             'https://github.com/riyad-from-space/Ezycourse-Community.git',
       ),
       Project(
-        title: 'Connect - Blogging App',
+        title: 'Sheba AI - Medical Assistant',
+        description: 'AI-powered healthcare app providing instant medical consultation and diagnosis assistance',
+        technologies: [
+          'Flutter',
+          'Rest API',
+          'Riverpod',
+          'Clean Architecture',
+          'AI Integration'
+        ],
+        githubLink: 'https://github.com/Noctambulist007/Sheba_AI.git',
+      ),
+      Project(
+        title: 'Fish Disease Detection',
+        description: 'ML-based mobile app for real-time fish disease identification using computer vision and FastAPI',
+        technologies: ['Flutter', 'AI Model', 'FastAPI', 'Python'],
+        githubLink:
+            'https://github.com/riyad-from-space/Fish-Disease-Detection-App.git',
+      ),
+      Project(
+        title: 'Connect - Social Blogging Platform',
+        description: 'Feature-rich blogging app with real-time updates, user profiles, and content discovery',
         technologies: ['Flutter', 'Firebase', 'Riverpod', 'MVVM'],
         githubLink: 'https://github.com/riyad-from-space/Connect.git',
       ),
       Project(
-        title: 'Sheba AI - Medical Assistant',
-        technologies: ['Flutter', 'Rest API', 'Riverpod', 'Clean Architecture', 'AI Integration'],
-        githubLink: 'https://github.com/Noctambulist007/Sheba_AI.git',
-      ),
-      Project(
-        title: 'LU Insights - For University Students',
+        title: 'LU Insights - Campus Companion',
+        description: 'University student hub for academic resources, notices, and campus event management',
         technologies: ['Flutter', 'Firebase', 'Riverpod', 'MVVM'],
         githubLink: 'https://github.com/riyad-from-space/LU-Insights.git',
       ),
       Project(
-        title: 'Portfolio Website with Flutter',
-        technologies: ['Flutter', 'Firebase Hosting',],
-      
+        title: 'Interactive Portfolio Website',
+        description: 'Responsive web portfolio built entirely with Flutter, showcasing dynamic theming and smooth UX',
+        technologies: [
+          'Flutter Web',
+          'Firebase Hosting',
+          'Responsive Design',
+        ],
         githubLink: 'https://github.com/riyad-from-space/Riyad-s-Portfolio.git',
-      ),
-      // Project(
-      //   title: 'NewsSip',
-      //   technologies: ['Flutter', 'BLoC', 'Firebase', 'WebSockets'],
-      //   playStoreLink:
-      //       'https://play.google.com/store/apps/details?id=com.heapiphy.newssip&hl=en',
-      //   githubLink: 'https://github.com/riyad-from-space/Task-Manager.git',
-      // ),
-      Project(
-        title: 'Fish Disease Detection App',
-        technologies: ['Flutter', 'AI Model', 'FastAPI'],
-        githubLink: 'https://github.com/riyad-from-space/Fish-Disease-Detection-App.git',
       ),
     ];
 
@@ -83,10 +114,10 @@ class ProjectsGrid extends StatelessWidget {
         crossAxisSpacing: 16.w,
         mainAxisSpacing: 16.h,
         mainAxisExtent: isMobile
-            ? 180.h
+            ? 220.h
             : isTablet
-                ? 200.h
-                : 220.h,
+                ? 240.h
+                : 260.h,
       ),
       itemCount: projects.length,
       itemBuilder: (context, index) {
@@ -126,6 +157,7 @@ class _ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
     return CustomContainer(
       child: Padding(
         padding: EdgeInsets.all(16.w),
@@ -136,7 +168,18 @@ class _ProjectCard extends StatelessWidget {
             Text(
               project.title,
               style: theme.headlineMedium,
-              maxLines: 1,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 8.h),
+
+            // Project Description
+            Text(
+              project.description,
+              style: theme.displaySmall?.copyWith(
+                fontSize: isMobile ? 12 : 13,
+              ),
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
             SizedBox(height: 10.h),
@@ -153,7 +196,6 @@ class _ProjectCard extends StatelessWidget {
                       vertical: 6.h,
                     ),
                     decoration: BoxDecoration(
-                      color: primary.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(
                         color: primary.withOpacity(0.3),
@@ -162,7 +204,7 @@ class _ProjectCard extends StatelessWidget {
                     ),
                     child: Text(
                       tech,
-                      style: theme.bodyMedium?.copyWith(
+                      style: theme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -188,15 +230,28 @@ class _ProjectCard extends StatelessWidget {
                   ),
                   SizedBox(width: 10.w),
                 ],
-                Expanded(
-                  child: _LinkButton(
-                    label: 'GitHub',
-                    icon: Icons.code,
-                    onTap: () => _launchUrl(project.githubLink),
-                    theme: theme,
-                    primary: primary,
+                if (project.appStoreLink != null) ...[
+                  Expanded(
+                    child: _LinkButton(
+                      label: 'App Store',
+                      icon: Icons.apple,
+                      onTap: () => _launchUrl(project.appStoreLink!),
+                      theme: theme,
+                      primary: primary,
+                    ),
                   ),
-                ),
+                  SizedBox(width: 10.w),
+                ],
+                if (project.githubLink != null)
+                  Expanded(
+                    child: _LinkButton(
+                      label: 'GitHub',
+                      icon: Icons.code,
+                      onTap: () => _launchUrl(project.githubLink!),
+                      theme: theme,
+                      primary: primary,
+                    ),
+                  ),
               ],
             ),
           ],
@@ -222,7 +277,7 @@ class _LinkButton extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(6),
@@ -232,7 +287,8 @@ class _LinkButton extends StatelessWidget {
           horizontal: 12.w,
         ),
         decoration: BoxDecoration(
-          color: primary.withOpacity(0.1),
+          // ignore: deprecated_member_use
+       
           borderRadius: BorderRadius.circular(6),
           border: Border.all(color: primary, width: 1.5),
         ),
@@ -248,7 +304,7 @@ class _LinkButton extends StatelessWidget {
             Flexible(
               child: Text(
                 label,
-                style: theme.bodyMedium?.copyWith(
+                style: theme.bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
                 overflow: TextOverflow.ellipsis,

@@ -15,14 +15,29 @@ class TechnicalSkillsGrid extends StatelessWidget {
 
     const skills = [
       [
-        'Flutter',
-        'Provider, Riverpod, Bloc-Cubit, Clean Architecture, MVVM, Push Notifications, Rest API'
+        'Mobile Development',
+        'Flutter (iOS & Android), Dart, Material Design, Responsive UI, Custom Widgets'
       ],
-      ['Database', 'Firebase, Supabase, MySQL'],
-      ['Operating Systems', 'MacOS, Windows, Linux'],
-      ['Version Control', 'Git, Github'],
-      ['Development Tools', 'VS Code, Android Studio, Xcode'],
-      ['Development & CI/CD', 'Playstore, Appstore'],
+      [
+        'State Management & Architecture',
+        'Riverpod, Provider, Bloc/Cubit, Clean Architecture, MVVM, Repository Pattern'
+      ],
+      [
+        'Backend & Cloud Services',
+        'Firebase (Auth, Firestore, Storage, Hosting), Supabase, REST API Integration, MySQL'
+      ],
+      [
+        'API & Integration',
+        'RESTful APIs, HTTP, Third-party SDKs, Push Notifications, FastAPI'
+      ],
+      [
+        'Version Control & Collaboration',
+        'Git, GitHub, Code Review, Agile Development, Team Collaboration'
+      ],
+      [
+        'Development & Deployment',
+        'VS Code, Android Studio, Xcode, Google Play Store, Apple App Store, CI/CD'
+      ],
     ];
 
     return GridView.builder(

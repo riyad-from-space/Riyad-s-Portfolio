@@ -16,7 +16,7 @@ class EducationGrid extends StatelessWidget {
       {
         'degree': 'B.Sc. in CSE',
         'institute': 'Leading Univercity, Sylhet',
-        'duration': 'Jan 2022 — Present',
+        'duration': 'Jan 2022 — Dec 2025',
         'cgpa': '3.1'
       },
       // {
@@ -91,6 +91,7 @@ class EducationGrid extends StatelessWidget {
                       ),
                       SizedBox(height: isMobile ? 4.h : 6.h),
                       Row(
+                        
                         children: [
                           Icon(Icons.calendar_today_outlined,
                               size: 16,

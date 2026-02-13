@@ -48,24 +48,6 @@ class TitleHeader extends StatelessWidget {
                     : 10.h,
             children: [
               _contactChip(
-                'LinkedIn',
-                Icons.link,
-                'https://www.linkedin.com/in/riyadfromspace/',
-                textTheme,
-                primary,
-                isMobile,
-                isTablet,
-              ),
-              _contactChip(
-                'GitHub',
-                Icons.code,
-                'https://github.com/riyad-from-space',
-                textTheme,
-                primary,
-                isMobile,
-                isTablet,
-              ),
-              _contactChip(
                 'Email',
                 Icons.email,
                 'mailto:ahmedriyad10186@gmail.com',
@@ -84,6 +66,24 @@ class TitleHeader extends StatelessWidget {
                 isTablet,
               ),
               _contactChip(
+                'LinkedIn',
+                Icons.link,
+                'https://www.linkedin.com/in/riyadfromspace/',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
+                'GitHub',
+                Icons.code,
+                'https://github.com/riyad-from-space',
+                textTheme,
+                primary,
+                isMobile,
+                isTablet,
+              ),
+              _contactChip(
                 'Sylhet, Bangladesh',
                 Icons.location_city,
                 'https://www.google.com/maps/search/?api=1&query=Sylhet%2C%20Bangladesh',
@@ -95,7 +95,7 @@ class TitleHeader extends StatelessWidget {
               _contactChip(
                 'Resume',
                 Icons.picture_as_pdf,
-                'https://riyad-portfolio-f18db.web.app',
+                'https://drive.google.com/drive/folders/1h_VemUqO-U3_lX3Zm-6jmpfww226fLSs?usp=sharing',
                 textTheme,
                 primary,
                 isMobile,
