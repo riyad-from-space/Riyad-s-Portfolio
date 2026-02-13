@@ -127,12 +127,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               SizedBox(height: smallSpacing),
               ExperienceListView(fontFamily: widget.selectedFont),
               SizedBox(height: smallSpacing),
-              const SectionHeadline(
-                icon: Icons.language,
-                sectionName: "Languages",
-              ),
-              SizedBox(height: smallSpacing),
-              LanguagesGrid(fontFamily: widget.selectedFont),
+              
               SizedBox(height: smallSpacing),
               const SectionHeadline(
                 icon: Icons.code,
@@ -148,6 +143,13 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               SizedBox(height: smallSpacing),
               ProjectsGrid(fontFamily: widget.selectedFont),
               SizedBox(height: sectionSpacing),
+              const SectionHeadline(
+                icon: Icons.language,
+                sectionName: "Languages",
+              ),
+              SizedBox(height: smallSpacing),
+              LanguagesGrid(fontFamily: widget.selectedFont),
+              SizedBox(height: smallSpacing),
               const SectionHeadline(
                 icon: Icons.school,
                 sectionName: "Education",

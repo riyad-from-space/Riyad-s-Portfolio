@@ -16,11 +16,11 @@ class TechnicalSkillsGrid extends StatelessWidget {
     const skills = [
       [
         'Flutter',
-        'Provider, Riverpod, GetX, Clean Architecture, MVVM, Push Notifications'
+        'Provider, Riverpod, Bloc-Cubit, Clean Architecture, MVVM, Push Notifications, Rest API'
       ],
       ['Database', 'Firebase, Supabase, MySQL'],
-      ['Operating Systems', 'Windows, Linux, MacOS'],
-      ['Version Control', 'Git, Github, Gitlab'],
+      ['Operating Systems', 'MacOS, Windows, Linux'],
+      ['Version Control', 'Git, Github'],
       ['Development Tools', 'VS Code, Android Studio, Xcode'],
       ['Development & CI/CD', 'Playstore, Appstore'],
     ];

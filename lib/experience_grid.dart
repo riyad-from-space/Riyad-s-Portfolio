@@ -33,8 +33,8 @@ class ExperienceListView extends StatelessWidget {
         'company': 'AppifyLab',
         'period': "May'24 - Present",
         'bullets': [
-          'Worked on Push Notification system for enhanced user engagement',
-          'Built real-time Chat functionality with Firebase integration',
+
+          'Implemented new features with REST API integrations maintaining Bloc architecture',
           'Performed continuous bug fixing and feature improvements for app stability',
           'Integrated RESTful APIs for seamless backend communication',
           'Managed app deployment on both Google Play Store and Apple App Store',
