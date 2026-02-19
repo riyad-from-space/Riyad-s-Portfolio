@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:riyad_portfolio/app_theme.dart';
-import 'package:riyad_portfolio/portfolio_screen.dart';
+import 'config/app_colors.dart';
+import 'config/app_theme.dart';
+import 'screens/portfolio_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,31 +17,17 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.light;
-  Color _selectedColor = Colors.red;
-  String _selectedFont = 'Poppins';
+  // Default: Teal (no red!)
+  Color _selectedColor = AppColors.accentOptions.first.color;
+  final String _selectedFont = 'Poppins';
 
-  void _setThemeMode(ThemeMode mode) {
-    setState(() {
-      _themeMode = mode;
-    });
-  }
-
-  void _setColor(Color color) {
-    setState(() {
-      _selectedColor = color;
-    });
-  }
-
-  void _setFont(String font) {
-    setState(() {
-      _selectedFont = font;
-    });
-  }
+  void _setThemeMode(ThemeMode mode) => setState(() => _themeMode = mode);
+  void _setColor(Color color) => setState(() => _selectedColor = color);
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(1920, 1080), // Desktop design size
+      designSize: const Size(1920, 1080),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -55,8 +42,6 @@ class _MyAppState extends State<MyApp> {
             onThemeModeChanged: _setThemeMode,
             selectedColor: _selectedColor,
             onColorChanged: _setColor,
-            selectedFont: _selectedFont,
-            onFontChanged: _setFont,
           ),
         );
       },
